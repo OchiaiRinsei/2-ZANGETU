@@ -152,13 +152,21 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BOSS.cpp" />
+    <ClCompile Include="BOSS1.cpp" />
+    <ClCompile Include="BOSS_MANAGER.cpp" />
+    <ClCompile Include="CONTAINER.cpp" />
     <ClCompile Include="GAME.cpp" />
     <ClCompile Include="GAME_OBJECT.cpp" />
     <ClCompile Include="gmain.cpp" />
+    <ClCompile Include="MAP.cpp" />
+    <ClCompile Include="PLAYER.cpp" />
     <ClCompile Include="SCENE.cpp" />
     <ClCompile Include="SCORE.cpp" />
     <ClCompile Include="STAGE.cpp" />
     <ClCompile Include="TITLE.cpp" />
+    <ClCompile Include="TRANSITION.cpp" />
+    <ClCompile Include="TRANSITION_FADE.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />
@@ -167,12 +175,20 @@
     <None Include="cpp.hint" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BOSS.h" />
+    <ClInclude Include="BOSS1.h" />
+    <ClInclude Include="BOSS_MANAGER.h" />
+    <ClInclude Include="CONTAINER.h" />
     <ClInclude Include="GAME.h" />
     <ClInclude Include="GAME_OBJECT.h" />
+    <ClInclude Include="MAP.h" />
+    <ClInclude Include="PLAYER.h" />
     <ClInclude Include="SCENE.h" />
     <ClInclude Include="SCORE.h" />
     <ClInclude Include="STAGE.h" />
     <ClInclude Include="TITLE.h" />
+    <ClInclude Include="TRANSITION.h" />
+    <ClInclude Include="TRANSITION_FADE.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
