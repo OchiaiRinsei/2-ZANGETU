@@ -4,7 +4,7 @@ void CONTAINER::load() {
 	loadGraphic();
 }
 void CONTAINER::setData() {
-	Data.title.pos = VECTOR2(width / 2, height / 2);
+	Data.title.pos = VECTOR2(0, 0);
 
 	Data.player.pos = VECTOR2(width / 2, height / 2 + 300);
 	Data.player.adsSpeed = 500.0f;
@@ -25,16 +25,21 @@ void CONTAINER::setData() {
 	//Data.boss1.scale = 0.15f;
 
 	Data.bossBoss1.px = width / 2;
-	Data.bossBoss1.py = height / 2 + 300;
+	Data.bossBoss1.py = height / 2 - 300;
 	Data.bossBoss1.vx = 0;
 	Data.bossBoss1.vy = 0;
-	Data.bossBoss1.speed = 100.0f;
+	Data.bossBoss1.speed = 300.0f;
 	Data.bossBoss1.scale = 0.15f;
 	Data.bossBoss1.hp = 30;
+
+	Data.cursor.px = MouseX;
+	Data.cursor.py = MouseY;
+	Data.cursor.scale = 1;
 }
 void CONTAINER::loadGraphic() {
 	Data.title.mainImg = loadImage("assets\\main.png");
 	Data.player.img = loadImage("assets\\player.png");
 	Data.map.img = loadImage("assets\\map.png");
 	Data.bossBoss1.img = loadImage("assets\\boss1.png");
+	Data.cursor.img = loadImage("assets\\OIP.JPG");
 }

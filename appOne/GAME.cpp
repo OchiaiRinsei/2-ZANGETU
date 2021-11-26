@@ -36,21 +36,19 @@ GAME::~GAME() {
 }
 void GAME::run() {
 	window(1920, 1080, full);
-	initDeltaTime();
 	rectMode(CENTER);
+
 	Container->load();
 	Scenes[TITLE_ID]->create();
-	
+
 	Player->create();
+	BossManager->create();
 	Map->create();
 	Transition->create();
-	//if (Scenes[STAGE_ID]){
-		BossManager->create();
-	    //BossManager->init();
-		BossManager->update();
-		BossManager->draw();
-		//}
+
 	CurSceneId = TITLE_ID;
+	Scenes[CurSceneId]->init();
+	initDeltaTime();
 	while (notQuit) {
 		setDeltaTime();
 		Scenes[CurSceneId]->proc();
@@ -58,4 +56,5 @@ void GAME::run() {
 }
 void GAME::changeScene(SCENE_ID sceneId) {
 	CurSceneId = sceneId;
+	Scenes[CurSceneId]->init();
 }

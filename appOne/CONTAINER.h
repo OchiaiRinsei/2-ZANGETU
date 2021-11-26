@@ -4,6 +4,7 @@
 #include"MAP.h"
 #include"BOSS.h"
 #include"BOSS1.h"
+#include"CURSOR.h"
 class CONTAINER{
 	struct DATA {
 		TITLE::DATA title;
@@ -11,6 +12,7 @@ class CONTAINER{
 		MAP::DATA map;
 	    BOSS::DATA bossBoss1;
 		BOSS1::DATA boss1;
+		CURSOR::DATA cursor;
 	};
 	DATA Data;
 public:

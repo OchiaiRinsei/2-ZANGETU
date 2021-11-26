@@ -13,29 +13,26 @@ STAGE::STAGE(class GAME* game) :
 STAGE::~STAGE() {
 }
 void STAGE::init() {
-	game()->transition()->inTrigger();
+	//game()->transition()->inTrigger();
+	game()->bossManager()->init();
 }
-
+void STAGE::update() {
+	game()->player()->update();
+	game()->map()->update();
+	game()->bossManager()->update();
+	
+}
 void STAGE::draw() {
 	clear(0);
 	game()->map()->draw();
-
 	game()->player()->draw();
-	game()->transition()->draw();
+	//game()->transition()->draw();
+	game()->bossManager()->draw();
 
-	//bosses[BOSS1_ID]->update();
-	//bosses[BOSS1_ID]->draw();
 }
 
 void STAGE::nextScene() {
 	if (isTrigger(KEY_SPACE)) {
 		game()->changeScene(GAME::SCORE_ID);
 	}
-}
-
-void STAGE::update() {
-	game()->player()->update();
-	game()->map()->update();
-	//bosses = new BOSS * [NUM_BOSSES];
-	//bosses[BOSS1_ID] = new BOSS1(game());
 }

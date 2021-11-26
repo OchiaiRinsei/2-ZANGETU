@@ -6,7 +6,6 @@
 void BOSS1::create() {
 	Boss = game()->container()->data().bossBoss1;
 	//Boss1 = game()->container()->data().boss1;
-
 }
 void BOSS1::update() {
 	Move();
@@ -24,6 +23,7 @@ void BOSS1::Move() {
 		break;
 	case 2:	  
 		Boss.vx = 0;
+		Boss.vy = 1;
 		break;
 	case 3:	  
 		Boss.vx = 0;
@@ -32,8 +32,8 @@ void BOSS1::Move() {
 	default:
 		break;
     }
-	Boss.px += Boss.vx * delta;
-	Boss.py += Boss.vy * delta;
+	Boss.px += Boss.vx * Boss.speed * delta;
+	Boss.py += Boss.vy * Boss.speed * delta;
 }
 void BOSS1::damage() {
 }

@@ -35,5 +35,6 @@ void MAP::update() {
 	}
 }
 void MAP::draw() {
+	rectMode(CENTER);
 	image(Map.img, Map.pos.x, Map.pos.y, 0, Map.scale);
 }

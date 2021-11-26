@@ -16,11 +16,11 @@ public:
     void inTrigger();
     void outTrigger();
     void draw();
-    virtual void inTriggerProc();
-    virtual bool inProc();
-    virtual void outTriggerProc();
-    virtual bool outProc();
-    bool inEndFlag();
+         virtual void inTriggerProc();
+         virtual bool inProc();
+         virtual void outTriggerProc();
+         virtual bool outProc();
+         bool inEndFlag();
     bool outEndFlag();
 };
 

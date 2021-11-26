@@ -7,16 +7,13 @@ BOSS::BOSS(GAME* game) :
 void BOSS::create() {
 }
 void BOSS::init() {
-	Boss.hp = 0;
+
 }
 void BOSS::update() {
 	
 }
 void BOSS::draw() {
-	//float px = game()->container()->data().bossBoss1.px;
-	//float py = game()->container()->data().bossBoss1.py;
-	rect(500, 500, 500, 500);
-	image(Boss.img, 500, 600,Boss.angle, Boss.scale);
+	image(Boss.img, Boss.px, Boss.py,Boss.angle, Boss.scale);
 }
 void BOSS::damage() {
 	if (Boss.hp > 0) {

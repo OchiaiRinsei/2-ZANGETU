@@ -18,13 +18,13 @@ void TITLE::draw() {
 	clear(0);
 	image(Title.mainImg, Title.pos.x, Title.pos.y);
 
-	game()->transition()->draw();
-
 	//‰æ‘œ‚É’u‚«Š·‚¦—\’è
 	fill(255);
 	textSize(50);
 	text("PLAY", 300, 900);
 	text("SCORE", 1400, 900);
+
+	game()->transition()->draw();
 }
 void TITLE::nextScene() {
 	if (isTrigger(KEY_SPACE)) {
