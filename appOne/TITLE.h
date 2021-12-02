@@ -6,11 +6,11 @@ class TITLE :
 {
 public:
     struct DATA {
-        int mainImg;
-        VECTOR2 pos;
-        float scalX;
-        float scalY;
+        int mainImg,logoImg,startImg,scoreImg;
+        VECTOR2 mainPos,logoPos,startPos,scorePos;
+        float radius;
         float scale;
+        int ID;
     };
 private:
     DATA Title;
@@ -19,6 +19,7 @@ public:
     ~TITLE();
     void init();
     void create();
+    void update();
     void draw();
     void nextScene();
 };

@@ -11,7 +11,11 @@ void CURSOR::init() {
 
 }
 void CURSOR::update() {
+	Cursor.px = mouseX;
+	Cursor.py = mouseY;
 }
 void CURSOR::draw() {
+	fill(0);
+	circle(Cursor.px, Cursor.py, Cursor.radius*2);
 	image(Cursor.img, Cursor.px, Cursor.py, 0, Cursor.scale);
 }

@@ -11,6 +11,11 @@ private:
 	class MAP* Map;
 public:
 	class MAP* map() { return Map; }
+//ÉJÅ[É\Éã
+private:
+	class CURSOR* Cursor;
+public:
+	class CURSOR* cursor() { return Cursor; }
 //SCENE
 public:
 	enum SCENE_ID {
@@ -29,15 +34,16 @@ public:
 private:
 	class GAME* Game = nullptr;
 	class PLAYER* Player = nullptr;
-	class BOSS_MANAGER* BossManager = nullptr;
+	class CHARACTOR_MANAGER* charaManager = nullptr;
 	class TRANSITION* Transition = nullptr;
 
 public:
-	class PLAYER* player() { return Player; }
 	class GAME* game() { return Game; }
+	class PLAYER* player() { return Player; }
 
-	class BOSS_MANAGER* bossManager() { return BossManager; }
+	class CHARACTOR_MANAGER* bossManager() { return charaManager; }
 	class TRANSITION* transition() { return Transition; }
+
 
 public:
 	GAME();

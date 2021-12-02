@@ -1,18 +1,18 @@
-#include "BOSS_MANAGER.h"
+#include"CHARACTOR_MANAGER.h"
 #include"GAME.h"
 #include"CONTAINER.h"
 #include"BOSS.h"
 
-BOSS_MANAGER::BOSS_MANAGER(class GAME* game) :
+CHARACTOR_MANAGER::CHARACTOR_MANAGER(class GAME* game) :
 	GAME_OBJECT(game) {
 }
-BOSS_MANAGER::~BOSS_MANAGER() {
+CHARACTOR_MANAGER::~CHARACTOR_MANAGER() {
 	for (int i = 0; i < Total; i++) {
 		delete Bosses[i];
 	}
 	delete[] Bosses;
 }
-void BOSS_MANAGER::create() {
+void CHARACTOR_MANAGER::create() {
 	int BossMng = 1;
 
 	Total = 1;
@@ -25,17 +25,17 @@ void BOSS_MANAGER::create() {
 		Bosses[i]->create();
 	}
 }
-void BOSS_MANAGER::init() {
+void CHARACTOR_MANAGER::init() {
 	for (int i = 0; i < Total; i++) {
 		Bosses[i]->init();
 	}
 }
-void BOSS_MANAGER::update() {
+void CHARACTOR_MANAGER::update() {
 	for (int i = 0; i < Total; i++) {
 		Bosses[i]->update();
 	}
 }
-void BOSS_MANAGER::draw() {
+void CHARACTOR_MANAGER::draw() {
 	for (int i = 0; i < Total; i++) {
 		Bosses[i]->draw();
 	}

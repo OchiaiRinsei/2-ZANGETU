@@ -154,7 +154,7 @@
   <ItemGroup>
     <ClCompile Include="BOSS.cpp" />
     <ClCompile Include="BOSS1.cpp" />
-    <ClCompile Include="BOSS_MANAGER.cpp" />
+    <ClCompile Include="CHARACTOR_MANAGER.cpp" />
     <ClCompile Include="CONTAINER.cpp" />
     <ClCompile Include="CURSOR.cpp" />
     <ClCompile Include="GAME.cpp" />
@@ -178,7 +178,7 @@
   <ItemGroup>
     <ClInclude Include="BOSS.h" />
     <ClInclude Include="BOSS1.h" />
-    <ClInclude Include="BOSS_MANAGER.h" />
+    <ClInclude Include="CHARACTOR_MANAGER.h" />
     <ClInclude Include="CONTAINER.h" />
     <ClInclude Include="CURSOR.h" />
     <ClInclude Include="GAME.h" />

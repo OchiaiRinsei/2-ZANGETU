@@ -11,6 +11,7 @@ public:
         VECTOR2 vec;
         float adsSpeed;
         float scale;
+        float radius;
     };
 private:
     DATA Player;

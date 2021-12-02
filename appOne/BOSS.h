@@ -17,6 +17,7 @@ public:
         float speed = 0;
         float angle = 0;
         float scale = 0;
+        float radius = 0;
 
         int hp = 0;
         float offsetLeft = 0;
@@ -34,5 +35,4 @@ public:
     virtual void draw();
     virtual void damage();
     int hp() { return Boss.hp; }
-    int groupId() { return Boss.gropId; }
 };

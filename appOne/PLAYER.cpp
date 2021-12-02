@@ -40,5 +40,15 @@ void PLAYER::move() {
 	}
 }
 void PLAYER::draw() {
+	//Šm”F—p
+	float cpx = game()->cursor()->px();
+	float cpy = game()->cursor()->py();
+	fill(0);
+	strokeWeight(5);
+	line(Player.pos.x, Player.pos.y, cpx, cpy);
+
+	circle(Player.pos.x, Player.pos.y, Player.radius*2);
+	//--------------------------------------
+
 	image(Player.img, Player.pos.x, Player.pos.y,0,Player.scale);
 }

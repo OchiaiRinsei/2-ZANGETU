@@ -8,24 +8,27 @@
 #include"MAP.h"
 #include"BOSS.h"
 #include"BOSS1.h"
-#include"BOSS_MANAGER.h"
+#include"CHARACTOR_MANAGER.h"
 #include"TRANSITION_FADE.h"
+#include"CURSOR.h"
 GAME::GAME() {
 	Container = new CONTAINER;
 
 	Scenes[TITLE_ID] = new TITLE(this);
 	Scenes[STAGE_ID] = new STAGE(this);
 	Scenes[SCORE_ID] = new SCORE(this);
-	BossManager = new BOSS_MANAGER(this);
+	charaManager = new CHARACTOR_MANAGER(this);
 
 
 	Player = new PLAYER(this);
 	Map = new MAP(this);
 	Transition = new TRANSITION_FADE(this);
+	Cursor = new CURSOR(this);
 }
 GAME::~GAME() {
+	delete Cursor;
 	delete Transition;
-	delete BossManager;
+	delete charaManager;
 	delete Map;
 	delete Player;
 	for (int i = 0; i < NUM_SCENES; i++) {
@@ -42,9 +45,11 @@ void GAME::run() {
 	Scenes[TITLE_ID]->create();
 
 	Player->create();
-	BossManager->create();
+	charaManager->create();
 	Map->create();
 	Transition->create();
+	Cursor->create();
+
 
 	CurSceneId = TITLE_ID;
 	Scenes[CurSceneId]->init();

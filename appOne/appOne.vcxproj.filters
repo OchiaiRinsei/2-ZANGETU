@@ -54,7 +54,7 @@
     <ClCompile Include="BOSS1.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="BOSS_MANAGER.cpp">
+    <ClCompile Include="CHARACTOR_MANAGER.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="TRANSITION.cpp">
@@ -111,7 +111,7 @@
     <ClInclude Include="BOSS1.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="BOSS_MANAGER.h">
+    <ClInclude Include="CHARACTOR_MANAGER.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="TRANSITION.h">

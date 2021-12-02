@@ -9,6 +9,8 @@ public:
         float px;
         float py;
         float scale;
+
+        float radius;
     };
 private:
     DATA Cursor;
@@ -20,5 +22,6 @@ public:
     void draw();
     float px() { return Cursor.px; }
     float py() { return Cursor.py; }
+    float radius() { return Cursor.radius; }
 };
 

@@ -5,8 +5,9 @@
 #include"MAP.h"
 #include"BOSS.h"
 #include"BOSS1.h"
-#include"BOSS_MANAGER.h"
+#include"CHARACTOR_MANAGER.h"
 #include"TRANSITION.h"
+#include"CURSOR.h"
 STAGE::STAGE(class GAME* game) :
 	SCENE(game) {
 }
@@ -20,15 +21,15 @@ void STAGE::update() {
 	game()->player()->update();
 	game()->map()->update();
 	game()->bossManager()->update();
+	game()->cursor()->update();
 	
 }
 void STAGE::draw() {
 	clear(0);
 	game()->map()->draw();
 	game()->player()->draw();
-	//game()->transition()->draw();
 	game()->bossManager()->draw();
-
+	game()->cursor()->draw();
 }
 
 void STAGE::nextScene() {

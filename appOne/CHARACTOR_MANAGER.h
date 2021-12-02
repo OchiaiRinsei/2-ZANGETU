@@ -1,6 +1,6 @@
 #pragma once
 #include "GAME_OBJECT.h"
-class BOSS_MANAGER :
+class CHARACTOR_MANAGER :
     public GAME_OBJECT
 {
 public:
@@ -9,8 +9,8 @@ private:
     int Total = 0;
     class BOSS** Bosses = nullptr;
 public:
-    BOSS_MANAGER(class GAME* game);
-    ~BOSS_MANAGER();
+    CHARACTOR_MANAGER(class GAME* game);
+    ~CHARACTOR_MANAGER();
     void create();
     void init();
     void update();
