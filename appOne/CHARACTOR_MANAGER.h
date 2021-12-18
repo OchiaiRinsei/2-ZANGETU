@@ -5,9 +5,11 @@ class CHARACTOR_MANAGER :
 {
 public:
     int numBosses = 1;
+    int numBullets = 8;
 private:
     int Total = 0;
-    class BOSS** Bosses = nullptr;
+    class CHARA** Bosses = 0;
+    class BULLETS** Bullets = 0;
 public:
     CHARACTOR_MANAGER(class GAME* game);
     ~CHARACTOR_MANAGER();

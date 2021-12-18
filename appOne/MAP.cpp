@@ -9,6 +9,7 @@ void MAP::create() {
 	Map = game()->container()->data().map;
 }
 void MAP::update() {
+	/*
 	VECTOR2 v = game()->player()->vec();
 	if (isPress(KEY_W)) {v.y = 1; }
 	if (isPress(KEY_S)) {v.y = -1; }
@@ -19,6 +20,7 @@ void MAP::update() {
 	Map.pos.y += v.y * 500 * delta;
 	v.x = 0;
 	v.y = 0;
+	*/
 	 
 	//§ŒÀ
 	if (Map.pos.x > width*2-width/2) {

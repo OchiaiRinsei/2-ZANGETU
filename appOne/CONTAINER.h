@@ -2,17 +2,21 @@
 #include "TITLE.h"
 #include"PLAYER.h"
 #include"MAP.h"
-#include"BOSS.h"
+#include"CHARA.h"
 #include"BOSS1.h"
 #include"CURSOR.h"
+#include"BULLETS.h"
+#include"PLAYERBULLETS.h"
 class CONTAINER{
 	struct DATA {
 		TITLE::DATA title;
+		//CHARA::DATA charaPlayer;
 		PLAYER::DATA player;
 		MAP::DATA map;
-	    BOSS::DATA bossBoss1;
+	    CHARA::DATA charaBoss1;
 		BOSS1::DATA boss1;
 		CURSOR::DATA cursor;
+		BULLETS::DATA playerBullets;
 	};
 	DATA Data;
 public:

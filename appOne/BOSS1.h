@@ -1,17 +1,19 @@
 #pragma once
-#include "BOSS.h"
+#include "CHARA.h"
 class BOSS1 :
-    public BOSS
+    public CHARA
 {
 public:
     //オリジナルデータ
     struct DATA {
+        float theta;
+        float rollDistance;
     };
 private:
     //オリジナルデータ
-   // DATA Boss1;
+   DATA Boss1;
 public:
-    BOSS1(class GAME* game):BOSS(game){}
+    BOSS1(class GAME* game):CHARA(game){}
     void create();
     void update();
 private:

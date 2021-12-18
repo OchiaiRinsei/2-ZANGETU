@@ -5,12 +5,12 @@ class CURSOR :
 {
 public:
     struct DATA {
-        int img;
-        float px;
-        float py;
-        float scale;
+        int img=0;
+        float px=0;
+        float py=0;
+        float scale=0;
 
-        float radius;
+        float radius=0;
     };
 private:
     DATA Cursor;

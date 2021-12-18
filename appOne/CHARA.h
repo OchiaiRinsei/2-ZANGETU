@@ -1,6 +1,6 @@
 #pragma once
 #include"GAME_OBJECT.h"
-class BOSS :
+class CHARA :
     public GAME_OBJECT
 {
 public:
@@ -26,13 +26,13 @@ public:
         float offsetBottom = 0;
     };
 protected:
-    DATA Boss;
+    DATA Chara;
 public:
-    BOSS(class GAME* game);
+    CHARA(class GAME* game);
     virtual void create();
     virtual void init();
     virtual void update();
     virtual void draw();
     virtual void damage();
-    int hp() { return Boss.hp; }
+    int hp() { return Chara.hp; }
 };

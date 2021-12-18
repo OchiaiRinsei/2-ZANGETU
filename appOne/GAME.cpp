@@ -6,11 +6,12 @@
 #include"SCORE.h"
 #include"PLAYER.h"
 #include"MAP.h"
-#include"BOSS.h"
+#include"CHARA.h"
 #include"BOSS1.h"
 #include"CHARACTOR_MANAGER.h"
 #include"TRANSITION_FADE.h"
 #include"CURSOR.h"
+#include"PLAYERBULLETS.h"
 GAME::GAME() {
 	Container = new CONTAINER;
 
@@ -24,6 +25,8 @@ GAME::GAME() {
 	Map = new MAP(this);
 	Transition = new TRANSITION_FADE(this);
 	Cursor = new CURSOR(this);
+	PlayerBullets = new PLAYERBULLETS(this);
+
 }
 GAME::~GAME() {
 	delete Cursor;
@@ -31,6 +34,7 @@ GAME::~GAME() {
 	delete charaManager;
 	delete Map;
 	delete Player;
+	delete PlayerBullets;
 	for (int i = 0; i < NUM_SCENES; i++) {
 		delete Scenes[i];
 	}
@@ -49,6 +53,7 @@ void GAME::run() {
 	Map->create();
 	Transition->create();
 	Cursor->create();
+	PlayerBullets->create();
 
 
 	CurSceneId = TITLE_ID;

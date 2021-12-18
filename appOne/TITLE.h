@@ -6,7 +6,7 @@ class TITLE :
 {
 public:
     struct DATA {
-        int mainImg,logoImg,startImg,scoreImg;
+        int mainImg=0,logoImg=0,startImg=0,scoreImg=0;
         VECTOR2 mainPos,logoPos,startPos,scorePos;
         float radius;
         float scale;

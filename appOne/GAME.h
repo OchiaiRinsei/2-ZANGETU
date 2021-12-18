@@ -36,12 +36,13 @@ private:
 	class PLAYER* Player = nullptr;
 	class CHARACTOR_MANAGER* charaManager = nullptr;
 	class TRANSITION* Transition = nullptr;
-
+	class PLAYERBULLETS* PlayerBullets = nullptr;
 public:
 	class GAME* game() { return Game; }
 	class PLAYER* player() { return Player; }
+	class PLAYERBULLETS* playerBullets() { return PlayerBullets; }
 
-	class CHARACTOR_MANAGER* bossManager() { return charaManager; }
+	class CHARACTOR_MANAGER* charactorManager() { return charaManager; }
 	class TRANSITION* transition() { return Transition; }
 
 

@@ -12,6 +12,13 @@ public:
         float adsSpeed;
         float scale;
         float radius;
+
+        //bullets
+        int playerBulletsHp = 0;
+        VECTOR2 launchVec;
+        float triggerErapsedTime;
+        float triggerInterval;
+        float ofsLaunchDist;
     };
 private:
     DATA Player;
@@ -20,9 +27,12 @@ public:
     void create();
     void init();
     void update();
-       void move();
+    void move();
+    //bullets
+    void launch();
     void draw();
     VECTOR2 vec() { return Player.vec; }
     VECTOR2 pos() { return Player.pos; }
+    int playerBulletsHp(){ return Player.playerBulletsHp; }
 };
 
