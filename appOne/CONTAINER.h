@@ -7,6 +7,7 @@
 #include"CURSOR.h"
 #include"BULLETS.h"
 #include"PLAYERBULLETS.h"
+#include"BOSSBULLETS.h"
 class CONTAINER{
 	struct DATA {
 		TITLE::DATA title;
@@ -17,6 +18,7 @@ class CONTAINER{
 		BOSS1::DATA boss1;
 		CURSOR::DATA cursor;
 		BULLETS::DATA playerBullets;
+		BULLETS::DATA bossBullets;
 	};
 	DATA Data;
 public:
@@ -24,5 +26,7 @@ public:
 	void setData();
 	void loadGraphic();
 	const DATA& data() { return Data; }
+	//
+	int hit(VECTOR2 pos1, VECTOR2 pos2, float radius1, float radius2,int damage);
 };
 

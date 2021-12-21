@@ -8,6 +8,10 @@ public:
     struct DATA {
         float theta;
         float rollDistance;
+        float ofsLaunchDist;
+        float triggerErapsedTime;
+        float triggerInterval;
+
     };
 private:
     //オリジナルデータ
@@ -18,6 +22,7 @@ public:
     void update();
 private:
     void Move();
+    void Launch();
     void damage();
 };
 

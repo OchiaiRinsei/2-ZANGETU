@@ -24,9 +24,15 @@ void CONTAINER::setData() {
  
 	Data.playerBullets.totalNum = 20;
 	Data.playerBullets.curNum = 0;
-	Data.playerBullets.advSpeed = 600;
+	Data.playerBullets.advSpeed = 800;
 	Data.playerBullets.angSpeed = 5;
 	Data.playerBullets.radius = 20;
+
+	Data.bossBullets.totalNum = 20;
+	Data.bossBullets.curNum = 0;
+	Data.bossBullets.advSpeed = 800;
+	Data.bossBullets.angSpeed = 0;
+	Data.bossBullets.radius = 20;
 
 
 	Data.map.pos.x = width / 2;
@@ -37,6 +43,7 @@ void CONTAINER::setData() {
 	Data.map.DlimmitX = 1920;
 	Data.map.WlimmitY = 0;
 	Data.map.SlimmitY = 1080;
+
 
 
 	Data.charaBoss1.px = width/2;
@@ -50,6 +57,9 @@ void CONTAINER::setData() {
 
 	Data.boss1.theta = 0;
 	Data.boss1.rollDistance = 300;
+	Data.boss1.triggerInterval = 0.2f;
+	Data.boss1.ofsLaunchDist = 50;
+	Data.boss1.triggerErapsedTime = -3.0f;
 
 	Data.cursor.px = MouseX;
 	Data.cursor.py = MouseY;
@@ -68,4 +78,15 @@ void CONTAINER::loadGraphic() {
 	Data.charaBoss1.img = loadImage("assets\\boss1.png");
 	Data.cursor.img = loadImage("assets\\target.png");
 	Data.playerBullets.img = loadImage("assets\\playerBullet.png");
+	Data.bossBullets.img = loadImage("assets\\bossBullet.png");
+}
+//ìñÇΩÇËîªíËä÷êî
+int CONTAINER::hit(VECTOR2 pos1,VECTOR2 pos2,float radius1,float radius2,int damage) {
+	float distanceX = pos2.x - pos1.x;
+	float distanceY = pos2.y - pos2.y;
+	float c = sqrt(distanceX * distanceX + distanceY * distanceY);
+	if (c <= radius1 + radius2) {
+		return damage;
+	}
+	else return 0;
 }

@@ -9,6 +9,7 @@
 #include"TRANSITION.h"
 #include"CURSOR.h"
 #include"PLAYERBULLETS.h"
+#include"BOSSBULLETS.h"
 STAGE::STAGE(class GAME* game) :
 	SCENE(game) {
 }
@@ -18,6 +19,7 @@ void STAGE::init() {
 	//game()->transition()->inTrigger();
 	game()->charactorManager()->init();
 	game()->playerBullets()->init();
+	game()->bossBullets()->init();
 }
 void STAGE::update() {
 	game()->player()->update();
@@ -25,6 +27,7 @@ void STAGE::update() {
 	game()->charactorManager()->update();
 	game()->cursor()->update();
 	game()->playerBullets()->update();
+	game()->bossBullets()->update();
 }
 void STAGE::draw() {
 	clear(0);
@@ -33,6 +36,7 @@ void STAGE::draw() {
 	game()->charactorManager()->draw();
 	game()->cursor()->draw();
 	game()->playerBullets()->draw();
+	game()->bossBullets()->draw();
 }
 
 void STAGE::nextScene() {

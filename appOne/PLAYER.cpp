@@ -46,15 +46,28 @@ void PLAYER::launch() {
 	if (isPress(KEY_SPACE)) {
 		Player.triggerErapsedTime += delta;
 		if (Player.triggerErapsedTime >= Player.triggerInterval) {
-			//‚±‚±l‚¦‚é
 			float distanceX = (cPosX-Player.pos.x);
 			float distanceY = (cPosY-Player.pos.y);
 			float naname = sqrt(distanceX * distanceX + distanceY * distanceY);
 			
+			
+			//0‚ÅŠ„‚é‚±‚Æ‚ð–h‚®
+			/*
+			if (naname == 0) {
+				naname = 1;
+			}
+			*/
 			float a = distanceX / naname;
 			float b = distanceY / naname;
 			//
 			VECTOR2 pos = Player.pos + VECTOR2(a,b) * Player.ofsLaunchDist;
+			//a = b = 0‚Ìê‡ã•ûŒü‚É”­ŽË
+			/*
+			if (a == 0 && b == 0) {
+				a = 0;
+				b = -1;
+			}
+			*/
 			game()->playerBullets()->launch(pos,  VECTOR2(a,b));
 			Player.triggerErapsedTime = 0;
 		}
@@ -73,6 +86,5 @@ void PLAYER::draw() {
 
 	circle(Player.pos.x, Player.pos.y, Player.radius * 2);
 	//--------------------------------------
-
 	image(Player.img, Player.pos.x, Player.pos.y, 0, Player.scale);
 }

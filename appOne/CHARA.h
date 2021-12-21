@@ -20,10 +20,6 @@ public:
         float radius = 0;
 
         int hp = 0;
-        float offsetLeft = 0;
-        float offsetTop = 0;
-        float offsetRight = 0;
-        float offsetBottom = 0;
     };
 protected:
     DATA Chara;

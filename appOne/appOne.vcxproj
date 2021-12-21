@@ -152,6 +152,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BOSSBULLETS.cpp" />
     <ClCompile Include="BULLETS.cpp" />
     <ClCompile Include="CHARA.cpp" />
     <ClCompile Include="BOSS1.cpp" />
@@ -178,6 +179,7 @@
     <None Include="cpp.hint" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BOSSBULLETS.h" />
     <ClInclude Include="BULLETS.h" />
     <ClInclude Include="CHARA.h" />
     <ClInclude Include="BOSS1.h" />

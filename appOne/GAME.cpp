@@ -12,6 +12,7 @@
 #include"TRANSITION_FADE.h"
 #include"CURSOR.h"
 #include"PLAYERBULLETS.h"
+#include"BOSSBULLETS.h"
 GAME::GAME() {
 	Container = new CONTAINER;
 
@@ -26,6 +27,7 @@ GAME::GAME() {
 	Transition = new TRANSITION_FADE(this);
 	Cursor = new CURSOR(this);
 	PlayerBullets = new PLAYERBULLETS(this);
+	BossBullets = new BOSSBULLETS(this);
 
 }
 GAME::~GAME() {
@@ -35,6 +37,7 @@ GAME::~GAME() {
 	delete Map;
 	delete Player;
 	delete PlayerBullets;
+	delete BossBullets;
 	for (int i = 0; i < NUM_SCENES; i++) {
 		delete Scenes[i];
 	}
@@ -54,6 +57,7 @@ void GAME::run() {
 	Transition->create();
 	Cursor->create();
 	PlayerBullets->create();
+	BossBullets->create();
 
 
 	CurSceneId = TITLE_ID;
