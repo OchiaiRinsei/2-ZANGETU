@@ -2,45 +2,69 @@
 #include"GAME.h"
 #include"CONTAINER.h"
 #include"CHARA.h"
-#include"PLAYER.h"
-#include"BULLETS.h"
 
 CHARACTOR_MANAGER::CHARACTOR_MANAGER(class GAME* game) :
 	GAME_OBJECT(game) {
 }
 CHARACTOR_MANAGER::~CHARACTOR_MANAGER() {
-	for (int i = 0; i < numBosses; i++) {
-		delete Bosses[i];
+	for (int i = 0; i < numCharactors; i++) {
+		delete Charactors[i];
 	}
-	delete[] Bosses;
+	delete[] Charactors;
 }
 void CHARACTOR_MANAGER::create() {
-	int BossMng = 1;
 
-	//Total = 9;
 
-	Bosses  = new CHARA * [1];
-	Bullets = new BULLETS * [8];
+	Charactors = new CHARA * [numCharactors];
 
-	Bosses[0] = new BOSS1(game());
-	
+	Charactors[0] = new BOSS1(game());
+	Charactors[1] = new BOSS2(game());
+	Charactors[2] = new BOSS3(game());
 
-	for (int i = 0; i < 1; i++) {
-		Bosses[i]->create();
+	//個別テスト用 テストの際はヘッダーのnumBossesを１にしてください
+	//Bosses = new CHARA * [1];
+	//Bosses[0] = new BOSS3(game());
+
+
+	for (int i = 0; i < numCharactors; i++) {
+		Charactors[i]->create();
 	}
 }
 void CHARACTOR_MANAGER::init() {
-	for (int i = 0; i < numBosses; i++) {
-		Bosses[i]->init();
+	for (int i = 0; i < numCharactors; i++) {
+		Charactors[i]->init();
 	}
+	
 }
 void CHARACTOR_MANAGER::update() {
-	for (int i = 0; i < numBosses; i++) {
-		Bosses[i]->update();
+	
+	if (Charactors[0]->hp() <= 0 && Charactors[1]->hp() <= 0) {
+		Charactors[2]->update();
+	}
+	else if (Charactors[0]->hp() <= 0) {
+		Charactors[1]->update();
+	}
+	if(Charactors[0]->hp() >= 0) {
+		Charactors[0]->update();
 	}
 }
 void CHARACTOR_MANAGER::draw() {
-	for (int i = 0; i < numBosses; i++) {
-		Bosses[i]->draw();
+	if (Charactors[0]->hp() <= 0 && Charactors[1]->hp() <= 0) {
+		Charactors[2]->draw();
 	}
+	else if (Charactors[0]->hp() <= 0) {
+		Charactors[1]->draw();
+	}
+	if(Charactors[0]->hp() >= 0){
+		Charactors[0]->draw();
+	}
+
 }
+	//for (int i = 0; i < numBosses; i++) {
+	//	Bosses[i]->draw();
+	//}
+
+
+
+
+

@@ -12,6 +12,7 @@ public:
         float advSpeed;
         float angSpeed;
         float radius;
+        float damage;
     };
 private:
     //ã§í ÉfÅ[É^
@@ -35,6 +36,6 @@ public:
     void draw();
     VECTOR2 pos(int i) { return Bullets[i].pos; }
     float radius() { return Bullet.radius; }
-    float curNum() { return Bullet.curNum; }
+    int curNum() { return Bullet.curNum; }
 };
 

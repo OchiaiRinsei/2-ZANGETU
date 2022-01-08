@@ -19,6 +19,7 @@ public:
         float scale = 0;
         float radius = 0;
 
+        int damage = 0;
         int hp = 0;
     };
 protected:

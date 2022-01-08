@@ -8,7 +8,7 @@ public:
     struct DATA {
         int mainImg=0,logoImg=0,startImg=0,scoreImg=0;
         VECTOR2 mainPos,logoPos,startPos,scorePos;
-        float radius;
+        float radius=0;
         float scale;
         int ID;
     };

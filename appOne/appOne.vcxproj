@@ -152,6 +152,8 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BOSS2.cpp" />
+    <ClCompile Include="BOSS3.cpp" />
     <ClCompile Include="BOSSBULLETS.cpp" />
     <ClCompile Include="BULLETS.cpp" />
     <ClCompile Include="CHARA.cpp" />
@@ -162,6 +164,8 @@
     <ClCompile Include="GAME.cpp" />
     <ClCompile Include="GAME_OBJECT.cpp" />
     <ClCompile Include="gmain.cpp" />
+    <ClCompile Include="HEAL.cpp" />
+    <ClCompile Include="ITEM.cpp" />
     <ClCompile Include="MAP.cpp" />
     <ClCompile Include="PLAYER.cpp" />
     <ClCompile Include="PLAYERBULLETS.cpp" />
@@ -179,6 +183,8 @@
     <None Include="cpp.hint" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BOSS2.h" />
+    <ClInclude Include="BOSS3.h" />
     <ClInclude Include="BOSSBULLETS.h" />
     <ClInclude Include="BULLETS.h" />
     <ClInclude Include="CHARA.h" />
@@ -188,6 +194,8 @@
     <ClInclude Include="CURSOR.h" />
     <ClInclude Include="GAME.h" />
     <ClInclude Include="GAME_OBJECT.h" />
+    <ClInclude Include="HEAL.h" />
+    <ClInclude Include="ITEM.h" />
     <ClInclude Include="MAP.h" />
     <ClInclude Include="PLAYER.h" />
     <ClInclude Include="PLAYERBULLETS.h" />

@@ -8,12 +8,13 @@ CHARA::CHARA(GAME* game) :
 void CHARA::create() {
 }
 void CHARA::init() {
-
+	
 }
 void CHARA::update() {
 	
 }
 void CHARA::draw() {
+	if (Chara.hp >= 0) {
 	//確認用
 	fill(0);
 	stroke(5);
@@ -21,10 +22,23 @@ void CHARA::draw() {
 	VECTOR2 pPos = game()->player()->pos();
 	line(Chara.px, Chara.py, pPos.x, pPos.y);
 	//-----------------------------
-	image(Chara.img, Chara.px, Chara.py,Chara.angle, Chara.scale);
+	//BOSSのhpの確認
+	textSize(100);
+	text(Chara.hp, 100, 100);
+	//-----------------------------
+	image(Chara.img, Chara.px, Chara.py, Chara.angle, Chara.scale);
+	}
 }
 void CHARA::damage() {
-	if (Chara.hp > 0) {
-		Chara.hp--;
+	float pRadius = game()->container()->data().player.radius;
+	float damaged = game()->container()->data().playerBullets.damage;
+	for (int i = 0; i < game()->playerBullets()->curNum(); i++) {
+		VECTOR2 bPos = game()->playerBullets()->pos(i);
+		float distanceX = bPos.x - Chara.px;
+		float distanceY = bPos.y - Chara.py;
+		float c = sqrt(distanceX * distanceX + distanceY * distanceY);
+		if (c <= pRadius + Chara.radius) {
+			Chara.hp -= damaged;
+		}
 	}
 }

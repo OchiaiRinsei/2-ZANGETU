@@ -4,12 +4,10 @@ class CHARACTOR_MANAGER :
     public GAME_OBJECT
 {
 public:
-    int numBosses = 1;
-    int numBullets = 8;
+    int numCharactors = 3;
 private:
     int Total = 0;
-    class CHARA** Bosses = 0;
-    class BULLETS** Bullets = 0;
+    class CHARA** Charactors = 0;
 public:
     CHARACTOR_MANAGER(class GAME* game);
     ~CHARACTOR_MANAGER();

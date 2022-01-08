@@ -4,6 +4,10 @@
 #include"MAP.h"
 #include"CHARA.h"
 #include"BOSS1.h"
+#include"BOSS2.h"
+#include"BOSS3.h"
+#include"ITEM.h"
+#include"HEAL.h"
 #include"CURSOR.h"
 #include"BULLETS.h"
 #include"PLAYERBULLETS.h"
@@ -15,7 +19,14 @@ class CONTAINER{
 		PLAYER::DATA player;
 		MAP::DATA map;
 	    CHARA::DATA charaBoss1;
+		CHARA::DATA charaBoss2;
+		CHARA::DATA charaBoss3;
 		BOSS1::DATA boss1;
+		BOSS2::DATA boss2;
+		BOSS3::DATA boss3;
+		ITEM::DATA itemHeal;
+		HEAL::DATA heal;
+
 		CURSOR::DATA cursor;
 		BULLETS::DATA playerBullets;
 		BULLETS::DATA bossBullets;
@@ -26,7 +37,5 @@ public:
 	void setData();
 	void loadGraphic();
 	const DATA& data() { return Data; }
-	//
-	int hit(VECTOR2 pos1, VECTOR2 pos2, float radius1, float radius2,int damage);
 };
 

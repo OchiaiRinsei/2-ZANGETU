@@ -7,12 +7,13 @@
 #include"PLAYER.h"
 #include"MAP.h"
 #include"CHARA.h"
-#include"BOSS1.h"
+#include"ITEM.h"
 #include"CHARACTOR_MANAGER.h"
 #include"TRANSITION_FADE.h"
 #include"CURSOR.h"
 #include"PLAYERBULLETS.h"
 #include"BOSSBULLETS.h"
+#include"HEAL.h"
 GAME::GAME() {
 	Container = new CONTAINER;
 
@@ -28,9 +29,11 @@ GAME::GAME() {
 	Cursor = new CURSOR(this);
 	PlayerBullets = new PLAYERBULLETS(this);
 	BossBullets = new BOSSBULLETS(this);
+	Heal = new HEAL(this);
 
 }
 GAME::~GAME() {
+	delete Heal;
 	delete Cursor;
 	delete Transition;
 	delete charaManager;
@@ -58,6 +61,7 @@ void GAME::run() {
 	Cursor->create();
 	PlayerBullets->create();
 	BossBullets->create();
+	Heal->create();
 
 
 	CurSceneId = TITLE_ID;

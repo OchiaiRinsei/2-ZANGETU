@@ -34,7 +34,6 @@ void TITLE::draw() {
 
 	game()->cursor()->draw();
 
-
 	game()->transition()->draw();
 }
 void TITLE::nextScene() {
@@ -42,15 +41,12 @@ void TITLE::nextScene() {
 	float cRadius = game()->cursor()->radius();
 	float cpx = game()->cursor()->px();
 	float cpy = game()->cursor()->py();
-
 	float distanceX = Title.startPos.x - cpx;
 	float distanceY = Title.startPos.y - cpy;
 	float c = sqrt(distanceX * distanceX + distanceY * distanceY);
 	//-------------------------------------------------------------------------------------------------
 	if (isTrigger(MOUSE_LBUTTON) &&
-		c <= cRadius + Title.radius) {
-		//game()->container()->hit(cPos, Title.startPos,Title.radius, cRadius,1)
-		//){
+		c <= cRadius+Title.radius) {
 		game()->transition()->outTrigger();
 		Title.ID = 1;
 	}
@@ -65,7 +61,7 @@ void TITLE::nextScene() {
 	if (isTrigger(MOUSE_LBUTTON) &&
 		c <= cRadius + Title.radius) {
 		game()->transition()->outTrigger();
-			Title.ID = 2;
+		Title.ID = 2;
 	}
 	if (game()->transition()->outEndFlag() && Title.ID == 2) {
 		game()->changeScene(GAME::SCORE_ID);

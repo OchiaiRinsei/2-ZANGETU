@@ -38,16 +38,17 @@ private:
 	class TRANSITION* Transition = nullptr;
 	class PLAYERBULLETS* PlayerBullets = nullptr;
 	class BOSSBULLETS* BossBullets = nullptr;
+	class HEAL* Heal = nullptr;
 public:
 	class GAME* game() { return Game; }
 	class PLAYER* player() { return Player; }
 	class PLAYERBULLETS* playerBullets() { return PlayerBullets; }
 	class BOSSBULLETS* bossBullets() { return BossBullets; }
-
+	
 	class CHARACTOR_MANAGER* charactorManager() { return charaManager; }
 	class TRANSITION* transition() { return Transition; }
 
-
+	class HEAL* heal() { return Heal; }
 public:
 	GAME();
 	~GAME();

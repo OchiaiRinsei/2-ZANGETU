@@ -2,30 +2,34 @@
 #include"GAME.h"
 #include"CONTAINER.h"
 #include"PLAYERBULLETS.h"
+#include"BOSSBULLETS.h"
 PLAYER::PLAYER(class GAME* game) :
 	GAME_OBJECT(game) {
 }
 void PLAYER::create() {
-	//Player = game()->container()->player();
 	Player = game()->container()->data().player;
 }
 void PLAYER::init() {
+	Player.hp = game()->container()->data().player.hp;
+	Player.pos = game()->container()->data().player.pos;
 }
 void PLAYER::update() {
 	move();
 	launch();
+	rightClick();
+	damage();
 }
 void PLAYER::move() {
 	if (isPress(KEY_W)) { Player.vec.y = -1; }
 	if (isPress(KEY_S)) { Player.vec.y = 1; }
 	if (isPress(KEY_A)) { Player.vec.x = -1; }
 	if (isPress(KEY_D)) { Player.vec.x = 1; }
-	//正規化できてないわ
+
 	normalize(Player.vec);
-	//
+
 	Player.pos += Player.vec * Player.adsSpeed * delta;
 	Player.vec = (0, 0);
-	//動きの制限
+	//動きの制限(仮)
 	if (Player.pos.x > width - 100) {
 		Player.pos.x = width - 100;
 	}
@@ -76,6 +80,51 @@ void PLAYER::launch() {
 		Player.triggerErapsedTime = Player.triggerInterval;
 	}
 }
+int PLAYER::appearItem() {
+	if (Player.hp <= game()->container()->data().player.hp / 2&&Player.firstItemFrag == 0) {
+		Player.itemId = 1;//後のアイテム完成後にランダム性を持たせる
+		Player.firstItemFrag = 1;
+		return Player.itemId;
+	}
+	return 0;
+}
+void PLAYER::rightClick() {//switch文のほうが見やすいかも余裕あったら
+	if (isPress(KEY_M)) {
+		if (Player.itemId == 0) {
+			//ここにアイテム表示を暗くする(fillを暗くする)をいれる。後回し
+		}
+		//HEALに移したほうがいい時間あるとき
+		if (Player.itemId == 1) {
+			//使用中の動き等の制限追加予定
+			Player.nowHealProgressTime += 1.0 * delta;
+			if (Player.nowHealProgressTime >= Player.healCompletionTime&&Player.healDurability > 0) {
+				Player.hp += Player.healAmount;
+				Player.nowHealProgressTime = 0;
+				Player.healDurability--;
+				if (Player.healDurability == 0) {
+					Player.itemId = 0;
+					Player.healDurability = 2;
+				}
+			}
+		}
+		//-----------------------------
+
+
+	}
+}
+void PLAYER::damage() {
+	float bRadius = game()->container()->data().bossBullets.radius;
+	float damaged = game()->container()->data().bossBullets.damage;
+	for (int i = 0; i < game()->bossBullets()->curNum(); i++) {
+		VECTOR2 bPos = game()->bossBullets()->pos(i);
+		float distanceX = bPos.x - Player.pos.x;
+		float distanceY = bPos.y - Player.pos.y;
+		float c = sqrt(distanceX * distanceX + distanceY * distanceY);
+		if (c <= bRadius + Player.radius) {
+			Player.hp -= damaged;
+		}
+	} 
+}
 void PLAYER::draw() {
 	//確認用
 	float cpx = game()->cursor()->px();
@@ -86,5 +135,28 @@ void PLAYER::draw() {
 
 	circle(Player.pos.x, Player.pos.y, Player.radius * 2);
 	//--------------------------------------
+	
+	//hpバー(仮) 
+	rectMode(CORNER);
+	stroke(255);
+	rect(40, height - 60, 1008, 50);
+
+	stroke(0, 255, 0);
+	fill(0, 255, 0);
+	rect(44, height - 55, Player.hp, 40);
+	//----------------------------------------------
+	//アイテム表示(仮)
+	noStroke();
+	fill(255, 255, 0);
+	rect(1700, 860, 200, 200);
+	if (Player.itemId == 0) {
+		fill(255);
+		rect(1715, 875, 170, 170);
+	}
+	if (Player.itemId == 1) {
+		image(game()->container()->data().itemHeal.img, 1715, 875, 0, 0.175f);
+	}
+	//-------------------------------------------
+	rectMode(CENTER);
 	image(Player.img, Player.pos.x, Player.pos.y, 0, Player.scale);
 }
