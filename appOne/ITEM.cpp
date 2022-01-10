@@ -11,13 +11,24 @@ void ITEM::init() {
 }
 void ITEM::update() {
 }
+int ITEM::effect() {
+	return 0;
+}
 void ITEM::draw() {
-	if (Item.id != 0) {
+	if (Item.id != 0 ) {
+		//判定確認用
 		fill(0);
 		stroke(5);
 		circle(Item.px, Item.py, Item.radius * 2);
+		//--------------------------------
 		image(Item.img, Item.px, Item.py, 0, Item.scale);
+
 	}
+	//ウィンドウにアイテム表示
+	if (Item.possession == 1 ) {
+		image(Item.img, 1800, 960, 0, 0.175f);
+	}
+	//-------------------------------------------
 }
 void ITEM::hit() {
 	VECTOR2 pPos = game()->player()->pos();
@@ -27,6 +38,8 @@ void ITEM::hit() {
 	float c = sqrt(distanceX * distanceX + distanceY * distanceY);
 	if (c <= pRadius + Item.radius) {
 		Item.id = 0;
+		Item.firstSetPosFrag = 1;
+		Item.possession = 1;
 	}
 }
 void ITEM::appear() {

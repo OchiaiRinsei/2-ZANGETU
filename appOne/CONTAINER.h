@@ -8,6 +8,7 @@
 #include"BOSS3.h"
 #include"ITEM.h"
 #include"HEAL.h"
+#include"BARRIER.h"
 #include"CURSOR.h"
 #include"BULLETS.h"
 #include"PLAYERBULLETS.h"
@@ -25,7 +26,9 @@ class CONTAINER{
 		BOSS2::DATA boss2;
 		BOSS3::DATA boss3;
 		ITEM::DATA itemHeal;
+		ITEM::DATA itemBarrier;
 		HEAL::DATA heal;
+		BARRIER::DATA barrier;
 
 		CURSOR::DATA cursor;
 		BULLETS::DATA playerBullets;

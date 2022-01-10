@@ -82,7 +82,7 @@ void PLAYER::launch() {
 }
 int PLAYER::appearItem() {
 	if (Player.hp <= game()->container()->data().player.hp / 2&&Player.firstItemFrag == 0) {
-		Player.itemId = 1;//後のアイテム完成後にランダム性を持たせる
+		Player.itemId = 1;//random()%2+1;//後のアイテム完成後にランダム性を持たせる
 		Player.firstItemFrag = 1;
 		return Player.itemId;
 	}
@@ -94,18 +94,23 @@ void PLAYER::rightClick() {//switch文のほうが見やすいかも余裕あったら
 			//ここにアイテム表示を暗くする(fillを暗くする)をいれる。後回し
 		}
 		//HEALに移したほうがいい時間あるとき
-		if (Player.itemId == 1) {
+		if (Player.itemId == 1&&game()->heal()->possession()) {
 			//使用中の動き等の制限追加予定
-			Player.nowHealProgressTime += 1.0 * delta;
-			if (Player.nowHealProgressTime >= Player.healCompletionTime&&Player.healDurability > 0) {
-				Player.hp += Player.healAmount;
-				Player.nowHealProgressTime = 0;
-				Player.healDurability--;
-				if (Player.healDurability == 0) {
-					Player.itemId = 0;
-					Player.healDurability = 2;
-				}
+			//game()->heal()->effect()
+			switch (game()->heal()->effect())
+			{
+			case 1:
+				Player.hp += 250;
+				break;
+			case 2:
+				Player.itemId = 0;
+				break;
+			default:
+				break;
 			}
+		}
+		if (Player.itemId == 2) {
+
 		}
 		//-----------------------------
 
@@ -145,16 +150,13 @@ void PLAYER::draw() {
 	fill(0, 255, 0);
 	rect(44, height - 55, Player.hp, 40);
 	//----------------------------------------------
-	//アイテム表示(仮)
+	//アイテム表示欄(仮)
 	noStroke();
 	fill(255, 255, 0);
 	rect(1700, 860, 200, 200);
 	if (Player.itemId == 0) {
 		fill(255);
 		rect(1715, 875, 170, 170);
-	}
-	if (Player.itemId == 1) {
-		image(game()->container()->data().itemHeal.img, 1715, 875, 0, 0.175f);
 	}
 	//-------------------------------------------
 	rectMode(CENTER);

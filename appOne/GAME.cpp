@@ -30,9 +30,10 @@ GAME::GAME() {
 	PlayerBullets = new PLAYERBULLETS(this);
 	BossBullets = new BOSSBULLETS(this);
 	Heal = new HEAL(this);
-
+	Barrier = new BARRIER(this);
 }
 GAME::~GAME() {
+	delete Barrier;
 	delete Heal;
 	delete Cursor;
 	delete Transition;
@@ -62,7 +63,7 @@ void GAME::run() {
 	PlayerBullets->create();
 	BossBullets->create();
 	Heal->create();
-
+	Barrier->create();
 
 	CurSceneId = TITLE_ID;
 	Scenes[CurSceneId]->init();

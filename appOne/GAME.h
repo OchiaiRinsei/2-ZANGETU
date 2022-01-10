@@ -39,6 +39,7 @@ private:
 	class PLAYERBULLETS* PlayerBullets = nullptr;
 	class BOSSBULLETS* BossBullets = nullptr;
 	class HEAL* Heal = nullptr;
+	class BARRIER* Barrier = nullptr;
 public:
 	class GAME* game() { return Game; }
 	class PLAYER* player() { return Player; }
@@ -49,6 +50,7 @@ public:
 	class TRANSITION* transition() { return Transition; }
 
 	class HEAL* heal() { return Heal; }
+	class BARRIER* barrier() { return Barrier; }
 public:
 	GAME();
 	~GAME();

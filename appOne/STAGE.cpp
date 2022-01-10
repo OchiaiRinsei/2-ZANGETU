@@ -14,6 +14,7 @@
 #include"BOSSBULLETS.h"
 #include"ITEM.h"
 #include"HEAL.h"
+#include"BARRIER.h"
 STAGE::STAGE(class GAME* game) :
 	SCENE(game) {
 }
@@ -34,6 +35,7 @@ void STAGE::update() {
 	game()->playerBullets()->update();
 	game()->bossBullets()->update();
 	game()->heal()->update();
+	game()->barrier()->update();
 }
 void STAGE::draw() {
 	clear(0);
@@ -44,6 +46,7 @@ void STAGE::draw() {
 	game()->playerBullets()->draw();
 	game()->bossBullets()->draw();
 	game()->heal()->draw();
+	game()->barrier()->draw();
 }
 
 void STAGE::nextScene() {

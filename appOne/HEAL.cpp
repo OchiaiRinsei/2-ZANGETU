@@ -8,7 +8,7 @@ void HEAL::create() {
 }
 void HEAL::update() {
 	appear();
-	if (Item.id == 1) {
+	if (Item.id == 1 ) {
 		setPos();
 		draw();
 		hit();
@@ -20,4 +20,18 @@ void HEAL::appear(){
 	if (itemId == 1) {
 		Item.id = 1;
 	}
+}
+int HEAL::effect() {
+	Heal.nowProgressTime += 1.0 * delta;
+	if (Heal.nowProgressTime >= Heal.CompletionTime ) {
+		Item.durability--;
+		Heal.nowProgressTime = 0;
+		return 1;
+	}
+	if (Item.durability == 0) {
+		Item.possession = 0;
+		Item.durability = 2;
+		return 2;
+	}
+	return 0;
 }

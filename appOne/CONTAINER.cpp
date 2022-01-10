@@ -118,12 +118,27 @@ void CONTAINER::setData() {
 	Data.itemHeal.radius = 70;
 	Data.itemHeal.scale = 0.07f;
 	Data.itemHeal.id = 0;
-	Data.itemHeal.itemId = 0;
+	Data.itemHeal.through = 0;
 	Data.itemHeal.firstSetPosFrag = 0;
 	Data.itemHeal.firstAppearFrag = 0;
+	Data.itemHeal.possession = 0;
+	Data.itemHeal.durability = 2;
 
-	Data.heal.itemId = 0;
-	Data.heal.id = 0;
+	Data.heal.CompletionTime = 4.0f;
+	Data.heal.nowProgressTime = 0;
+	Data.heal.healAmount = 250;
+
+
+	Data.itemBarrier.px = 200;
+	Data.itemBarrier.py = 300;
+	Data.itemBarrier.radius = 70;
+	Data.itemBarrier.scale = 0.07f;
+	Data.itemBarrier.id = 0;
+	Data.itemBarrier.through = 0;
+	Data.itemBarrier.firstSetPosFrag = 0;
+	Data.itemBarrier.firstAppearFrag = 0;
+	Data.itemBarrier.possession = 0;
+	Data.itemBarrier.durability = 0;
 
 }
 void CONTAINER::loadGraphic() {
@@ -141,4 +156,5 @@ void CONTAINER::loadGraphic() {
 	Data.playerBullets.img = loadImage("assets\\playerBullet.png");
 	Data.bossBullets.img = loadImage("assets\\bossBullet.png");
 	Data.itemHeal.img = loadImage("assets\\heal.jpg");
+	Data.itemBarrier.img = loadImage("assets\\barrier.jpg");
 }
