@@ -16,9 +16,11 @@ void HEAL::update() {
 }
 
 void HEAL::appear(){
-	int itemId = game()->player()->appearItem();
-	if (itemId == 1) {
+	if (game()->player()->itemId() == 1) {
 		Item.id = 1;
+	}
+	else {
+		Item.id = 0;
 	}
 }
 int HEAL::effect() {
@@ -30,7 +32,7 @@ int HEAL::effect() {
 	}
 	if (Item.durability == 0) {
 		Item.possession = 0;
-		Item.durability = 2;
+		Item.durability = game()->container()->data().itemHeal.durability;
 		return 2;
 	}
 	return 0;

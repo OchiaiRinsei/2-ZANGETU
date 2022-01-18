@@ -16,7 +16,6 @@
 class CONTAINER{
 	struct DATA {
 		TITLE::DATA title;
-		//CHARA::DATA charaPlayer;
 		PLAYER::DATA player;
 		MAP::DATA map;
 	    CHARA::DATA charaBoss1;

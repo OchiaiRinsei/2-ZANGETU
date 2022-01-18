@@ -14,6 +14,7 @@
 #include"PLAYERBULLETS.h"
 #include"BOSSBULLETS.h"
 #include"HEAL.h"
+#include"BARRIER.h"
 GAME::GAME() {
 	Container = new CONTAINER;
 
@@ -68,7 +69,7 @@ void GAME::run() {
 	CurSceneId = TITLE_ID;
 	Scenes[CurSceneId]->init();
 	initDeltaTime();
-	while (notQuit) {
+ 	while (notQuit) {
 		setDeltaTime();
 		Scenes[CurSceneId]->proc();
 	}

@@ -42,11 +42,11 @@ void BULLETS::kill(int i) {
 }
 void BULLETS::draw() {
 	for (int i = 0; i < Bullet.curNum; i++) {
-		image(Bullet.img, Bullets[i].pos.x, Bullets[i].pos.y, Bullets[i].angle,0.05f);
 		//”»’èŠm”F—p
 		fill(255);
 		circle(Bullets[i].pos.x, Bullets[i].pos.y, Bullet.radius * 2);
 		//-----------------------------------------
+		image(Bullet.img, Bullets[i].pos.x, Bullets[i].pos.y, Bullets[i].angle,0.05f);
 	}
 
 }

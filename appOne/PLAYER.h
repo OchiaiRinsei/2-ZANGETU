@@ -6,16 +6,22 @@ class PLAYER :
 {
 public:
     struct DATA {
-        int img;
         int hp;
         VECTOR2 pos;
         VECTOR2 vec;
+        float angle;
         float adsSpeed;
         float scale;
         float radius;
+        //Image
+        int img;
+        int nImg;
+        int sImg;
+        int eImg;
+        int wImg;
 
         //bullets
-        int playerBulletsHp = 0;
+        //int playerBulletsHp = 0;
         VECTOR2 launchVec;
         float triggerErapsedTime;
         float triggerInterval;
@@ -23,11 +29,9 @@ public:
         //itemä«óù
         int itemId;
         int firstItemFrag;
-        //heal
-        float nowHealProgressTime;
-        float healCompletionTime;
-        int healDurability;
-        int healAmount;
+        //barrierä÷åW
+        int invincibility;//ñ≥ìGÇ©ÇÃèÛë‘
+       
     };
 private:
     DATA Player;
@@ -37,17 +41,21 @@ public:
     void init();
     void update();
     void move();
+    void setImg();
     void damage();
     //bullets
     void launch();
     void draw();
     //item
-    int appearItem();
+    void appearItem();
     void rightClick();
+
     VECTOR2 vec() { return Player.vec; }
     VECTOR2 pos() { return Player.pos; }
     int hp() { return Player.hp; }
     float radius() { return Player.radius; }
-    int playerBulletsHp(){ return Player.playerBulletsHp; }
+    //int playerBulletsHp(){ return Player.playerBulletsHp; }
+    int itemId() { return Player.itemId; }
+    int invincibility() { return Player.invincibility; }
 };
 

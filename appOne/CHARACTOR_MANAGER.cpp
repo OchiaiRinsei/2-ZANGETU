@@ -21,9 +21,7 @@ void CHARACTOR_MANAGER::create() {
 	Charactors[1] = new BOSS2(game());
 	Charactors[2] = new BOSS3(game());
 
-	//個別テスト用 テストの際はヘッダーのnumBossesを１にしてください
-	//Bosses = new CHARA * [1];
-	//Bosses[0] = new BOSS3(game());
+	
 
 
 	for (int i = 0; i < numCharactors; i++) {

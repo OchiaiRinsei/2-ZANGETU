@@ -18,6 +18,7 @@ void BOSS1::Move() {
 	Boss1.theta += 0.033;
 	Chara.px = Chara.px +cos(Boss1.theta) * Boss1.rollDistance + sin(Boss1.theta)*Boss1.rollDistance;
 	Chara.py = Chara.py -sin(Boss1.theta) * Boss1.rollDistance + cos(Boss1.theta)*Boss1.rollDistance;
+	Chara.px += 10;
 	
 }
 void BOSS1::Launch() {

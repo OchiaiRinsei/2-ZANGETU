@@ -6,8 +6,8 @@ class HEAL :
 public:
     //オリジナルデータ
     struct DATA {
-        float nowProgressTime;
-        float CompletionTime;
+        float nowProgressTime;//経過時間
+        float CompletionTime;//完了時間
         int healAmount;
     };
 private:
