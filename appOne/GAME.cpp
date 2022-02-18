@@ -15,6 +15,7 @@
 #include"BOSSBULLETS.h"
 #include"HEAL.h"
 #include"BARRIER.h"
+#include"PENETRATE.h"
 GAME::GAME() {
 	Container = new CONTAINER;
 
@@ -32,8 +33,10 @@ GAME::GAME() {
 	BossBullets = new BOSSBULLETS(this);
 	Heal = new HEAL(this);
 	Barrier = new BARRIER(this);
+	Penetrate = new PENETRATE(this);
 }
 GAME::~GAME() {
+	delete Penetrate;
 	delete Barrier;
 	delete Heal;
 	delete Cursor;
@@ -65,6 +68,7 @@ void GAME::run() {
 	BossBullets->create();
 	Heal->create();
 	Barrier->create();
+	Penetrate->create();
 
 	CurSceneId = TITLE_ID;
 	Scenes[CurSceneId]->init();

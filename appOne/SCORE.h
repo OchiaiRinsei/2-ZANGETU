@@ -1,9 +1,9 @@
 #pragma once
 #include "SCENE.h"
-#include"libOne.h"
 class SCORE :
     public SCENE
 {
+    int n1, n2, n3, n4;
 public:
     SCORE(class GAME* game);
     ~SCORE();

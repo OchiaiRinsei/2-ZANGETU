@@ -1,6 +1,6 @@
 #pragma once
 #include "ITEM.h"
-class BARRIER :
+class PENETRATE :
     public ITEM
 {
 public:
@@ -11,16 +11,14 @@ public:
     };
 private:
     //オリジナルデータ
-    DATA Barrier;
+    DATA Penetrate;
 public:
-    BARRIER(class GAME* game) :ITEM(game) {}
+    PENETRATE(class GAME* game) :ITEM(game) {}
     void create();
     void init();
     void update();
-    void draw();
     void appear();
     int effect();
 
-private:
-    void EffectDraw();
 };
+

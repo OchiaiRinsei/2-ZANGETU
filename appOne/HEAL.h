@@ -16,6 +16,7 @@ private:
 public:
     HEAL(class GAME* game):ITEM(game){}
     void create();
+    void init();
     void update();
     void appear();
     int effect();

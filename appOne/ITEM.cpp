@@ -25,7 +25,7 @@ void ITEM::draw() {
 	}
 	//ウィンドウにアイテム表示
 	if (Item.possession == 1 ) {
-		image(Item.img, 1800, 960, 0, 0.175f);
+		image(Item.img, 1800, 960, 0, Item.scale*1.75);
 	}
 	//-------------------------------------------
 }

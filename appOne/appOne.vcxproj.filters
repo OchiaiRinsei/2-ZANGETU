@@ -16,8 +16,14 @@
     <Filter Include="mane">
       <UniqueIdentifier>{8374b9bb-a9fd-4d5d-83a9-6c4e99b0ce8b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="item">
+    <Filter Include="scene">
+      <UniqueIdentifier>{88236637-7351-49a7-a59d-ea4bf0d335eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\item">
       <UniqueIdentifier>{ac564407-b59e-4c15-a6cd-ce5f98af394a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\boss">
+      <UniqueIdentifier>{5fd2879d-353d-4d77-9592-013ac5abc192}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -30,18 +36,6 @@
     <ClCompile Include="GAME_OBJECT.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="SCENE.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="TITLE.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="STAGE.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="SCORE.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="CONTAINER.cpp">
       <Filter>mane</Filter>
     </ClCompile>
@@ -49,15 +43,6 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="MAP.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="CHARA.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="BOSS1.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="CHARACTOR_MANAGER.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="TRANSITION.cpp">
@@ -78,20 +63,53 @@
     <ClCompile Include="BOSSBULLETS.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="BOSS2.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="BOSS3.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="BARRIER.cpp">
-      <Filter>item</Filter>
+      <Filter>ソース ファイル\item</Filter>
     </ClCompile>
     <ClCompile Include="ITEM.cpp">
-      <Filter>item</Filter>
+      <Filter>ソース ファイル\item</Filter>
     </ClCompile>
     <ClCompile Include="HEAL.cpp">
-      <Filter>item</Filter>
+      <Filter>ソース ファイル\item</Filter>
+    </ClCompile>
+    <ClCompile Include="PENETRATE.cpp">
+      <Filter>ソース ファイル\item</Filter>
+    </ClCompile>
+    <ClCompile Include="COUNT_SCORE.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SCENE.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SCORE.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="STAGE.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="TITLE.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="BOSS_LHAND.cpp">
+      <Filter>ソース ファイル\boss</Filter>
+    </ClCompile>
+    <ClCompile Include="BOSS_RHAND.cpp">
+      <Filter>ソース ファイル\boss</Filter>
+    </ClCompile>
+    <ClCompile Include="BOSS1.cpp">
+      <Filter>ソース ファイル\boss</Filter>
+    </ClCompile>
+    <ClCompile Include="BOSS2.cpp">
+      <Filter>ソース ファイル\boss</Filter>
+    </ClCompile>
+    <ClCompile Include="BOSS3.cpp">
+      <Filter>ソース ファイル\boss</Filter>
+    </ClCompile>
+    <ClCompile Include="CHARA.cpp">
+      <Filter>ソース ファイル\boss</Filter>
+    </ClCompile>
+    <ClCompile Include="CHARACTOR_MANAGER.cpp">
+      <Filter>ソース ファイル\boss</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -111,18 +129,6 @@
     <ClInclude Include="GAME_OBJECT.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="SCENE.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="TITLE.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="STAGE.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="SCORE.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="CONTAINER.h">
       <Filter>mane</Filter>
     </ClInclude>
@@ -130,15 +136,6 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="MAP.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="CHARA.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="BOSS1.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="CHARACTOR_MANAGER.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="TRANSITION.h">
@@ -159,20 +156,53 @@
     <ClInclude Include="BOSSBULLETS.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="BOSS2.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="BOSS3.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="BARRIER.h">
-      <Filter>item</Filter>
+      <Filter>ソース ファイル\item</Filter>
     </ClInclude>
     <ClInclude Include="ITEM.h">
-      <Filter>item</Filter>
+      <Filter>ソース ファイル\item</Filter>
     </ClInclude>
     <ClInclude Include="HEAL.h">
-      <Filter>item</Filter>
+      <Filter>ソース ファイル\item</Filter>
+    </ClInclude>
+    <ClInclude Include="PENETRATE.h">
+      <Filter>ソース ファイル\item</Filter>
+    </ClInclude>
+    <ClInclude Include="COUNT_SCORE.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="SCENE.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SCORE.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="STAGE.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="TITLE.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="BOSS_LHAND.h">
+      <Filter>ソース ファイル\boss</Filter>
+    </ClInclude>
+    <ClInclude Include="BOSS_RHAND.h">
+      <Filter>ソース ファイル\boss</Filter>
+    </ClInclude>
+    <ClInclude Include="BOSS1.h">
+      <Filter>ソース ファイル\boss</Filter>
+    </ClInclude>
+    <ClInclude Include="BOSS2.h">
+      <Filter>ソース ファイル\boss</Filter>
+    </ClInclude>
+    <ClInclude Include="BOSS3.h">
+      <Filter>ソース ファイル\boss</Filter>
+    </ClInclude>
+    <ClInclude Include="CHARA.h">
+      <Filter>ソース ファイル\boss</Filter>
+    </ClInclude>
+    <ClInclude Include="CHARACTOR_MANAGER.h">
+      <Filter>ソース ファイル\boss</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -31,15 +31,17 @@ void CONTAINER::setData() {
 	Data.player.adsSpeed = 500;
 	Data.player.angle = 0;
 	Data.player.scale = 0.6f;
-	Data.player.hp = 1000;
-	Data.player.radius = 70;
+	Data.player.hp = 20;
+	Data.player.radius = 60;
 	Data.player.ofsLaunchDist = 70;
 	Data.player.triggerErapsedTime = 0;
 	Data.player.triggerInterval = 0.25f;
 	Data.player.itemId = 0;
 	Data.player.firstItemFrag = 0;
 	Data.player.invincibility = 0;
+	Data.player.buffBullet = 0;
 	
+	Data.player.time = 0.0f;
  
 	Data.playerBullets.totalNum = 20;
 	Data.playerBullets.curNum = 0;
@@ -53,7 +55,7 @@ void CONTAINER::setData() {
 	Data.bossBullets.advSpeed = 800;
 	Data.bossBullets.angSpeed = 0;
 	Data.bossBullets.radius = 20;
-	Data.bossBullets.damage = 10;
+	Data.bossBullets.damage = 1;
 
 
 	
@@ -66,7 +68,7 @@ void CONTAINER::setData() {
 	Data.charaBoss1.vy = 0;
 	Data.charaBoss1.speed = 0;
 	Data.charaBoss1.scale = 0.5f;
-	Data.charaBoss1.hp = 500;
+	Data.charaBoss1.hp = 45;
 	Data.charaBoss1.radius = 60;
 
 	Data.boss1.theta = 0;
@@ -81,41 +83,67 @@ void CONTAINER::setData() {
 	Data.charaBoss2.vy = 0;
 	Data.charaBoss2.speed = 0;
 	Data.charaBoss2.scale = 1.0f;
-	Data.charaBoss2.hp = 1500;
+	Data.charaBoss2.hp = 90;
 	Data.charaBoss2.radius = 120;
 
 	Data.boss2.theta = 0;
 	Data.boss2.triggerInterval = 0.01f;
-	Data.boss2.ofsLaunchDist = 100;
+	Data.boss2.ofsLaunchDist = 70;
 	Data.boss2.triggerErapsedTime = -1.5f;
 
-	Data.charaBoss3.px = 0;
-	Data.charaBoss3.py = 0 ;
+	Data.charaBoss3.px = width/2;
+	Data.charaBoss3.py = height/2;
 	Data.charaBoss3.vx = 0;
 	Data.charaBoss3.vy = 0;
 	Data.charaBoss3.speed = 25.0f;
 	Data.charaBoss3.scale = 1.0f;
-	Data.charaBoss3.hp = 400;
+	Data.charaBoss3.hp = 70;
 	Data.charaBoss3.radius = 120;
 
 	Data.boss3.theta = 0;
-	Data.boss3.triggerInterval = 0.2f;
+	Data.boss3.triggerInterval = 0.6f;
 	Data.boss3.ofsLaunchDist = 100;
-	Data.boss3.triggerErapsedTime = -3.0f;
+	Data.boss3.triggerErapsedTime = -2.0f;
 
 	Data.boss3.angle = 0;
 	Data.boss3.RotSpeed = 0;
-	//Data.boss3.Vel=VECTOR2(0,0);
-	//Data.boss3.Acc=VECTOR2(0,0);
-	//Data.boss3.V= VECTOR2(0,0);
 	Data.boss3.MaxSpeed = 15.0f;
 	Data.boss3.MaxForce = 1.5f;
 	Data.boss3.NearDistance = 200.0f;
 
+	Data.charaBossRHand.px = width / 2;
+	Data.charaBossRHand.py = height / 2;
+	Data.charaBossRHand.vx = 0;
+	Data.charaBossRHand.vy = 0;
+	Data.charaBossRHand.speed = 0;
+	Data.charaBossRHand.scale = 0.7f;
+	Data.charaBossRHand.hp = 50;
+	Data.charaBossRHand.radius = 60;
+
+	Data.bossRHand.theta = 0;
+	Data.bossRHand.triggerInterval = 1.0f;
+	Data.bossRHand.ofsLaunchDist = 100;
+	Data.bossRHand.triggerErapsedTime = -0.5f;
+
+	Data.charaBossLHand.px = width/2;
+	Data.charaBossLHand.py = height/2;
+	Data.charaBossLHand.vx = 0;
+	Data.charaBossLHand.vy = 0;
+	Data.charaBossLHand.speed = 0;
+	Data.charaBossLHand.scale = 0.7f;
+	Data.charaBossLHand.hp = 40;
+	Data.charaBossLHand.radius = 60;
+
+	Data.bossLHand.theta = 0;
+	Data.bossLHand.rollDistance = 110.0f;
+	Data.bossLHand.triggerInterval = 1.0f;
+	Data.bossLHand.ofsLaunchDist = 100;
+	Data.bossLHand.triggerErapsedTime = -1.5f;
+
 	Data.itemHeal.px = 0;
 	Data.itemHeal.py = 0;
 	Data.itemHeal.radius = 40;
-	Data.itemHeal.scale = 0.07f;
+	Data.itemHeal.scale = 1.0f;
 	Data.itemHeal.id = 0;
 	Data.itemHeal.through = 0;
 	Data.itemHeal.firstSetPosFrag = 0;
@@ -131,7 +159,7 @@ void CONTAINER::setData() {
 	Data.itemBarrier.px = 0;
 	Data.itemBarrier.py = 0;
 	Data.itemBarrier.radius = 40;
-	Data.itemBarrier.scale = 0.07f;
+	Data.itemBarrier.scale = 1.0f;
 	Data.itemBarrier.id = 0;
 	Data.itemBarrier.through = 0;
 	Data.itemBarrier.firstSetPosFrag = 0;
@@ -141,8 +169,20 @@ void CONTAINER::setData() {
 
 	Data.barrier.CompletionTime = 7.0f;
 	Data.barrier.nowProgressTime = 0;
-	Data.barrier.invincibility = 0;
 
+	Data.itemPenetrate.px = 0;
+	Data.itemPenetrate.py = 0;
+	Data.itemPenetrate.radius = 40;
+	Data.itemPenetrate.scale = 1.0f;
+	Data.itemPenetrate.id = 0;
+	Data.itemPenetrate.through = 0;
+	Data.itemPenetrate.firstSetPosFrag = 0;
+	Data.itemPenetrate.firstAppearFrag = 0;
+	Data.itemPenetrate.possession = 0;
+	Data.itemPenetrate.durability = 1;
+
+	Data.penetrate.CompletionTime = 3.0f;
+	Data.penetrate.nowProgressTime = 0;
 }
 void CONTAINER::loadGraphic() {
 	Data.title.mainImg = loadImage("assets\\main.png");
@@ -159,9 +199,13 @@ void CONTAINER::loadGraphic() {
 	Data.charaBoss1.img = loadImage("assets\\boss1.png");
 	Data.charaBoss2.img = loadImage("assets\\boss2.png");
 	Data.charaBoss3.img = loadImage("assets\\boss3.png");
+	Data.charaBossRHand.img = loadImage("assets\\bossRHand.png");
+	Data.charaBossLHand.img = loadImage("assets\\bossLHand.png");
 	Data.cursor.img = loadImage("assets\\target.png");
 	Data.playerBullets.img = loadImage("assets\\playerBullet.png");
 	Data.bossBullets.img = loadImage("assets\\bossBullet.png");
-	Data.itemHeal.img = loadImage("assets\\heal.jpg");
-	Data.itemBarrier.img = loadImage("assets\\barrier.jpg");
+	Data.itemHeal.img = loadImage("assets\\heal.png");
+	Data.itemBarrier.img = loadImage("assets\\barrier.png");
+	Data.itemPenetrate.img = loadImage("assets\\penetrate.png");
+
 }

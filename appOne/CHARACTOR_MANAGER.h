@@ -4,7 +4,8 @@ class CHARACTOR_MANAGER :
     public GAME_OBJECT
 {
 public:
-    int numCharactors = 3;
+    int numCharactors = 5;
+    int lasBossHp = 0;
 private:
     int Total = 0;
     class CHARA** Charactors = 0;
@@ -15,5 +16,6 @@ public:
     void init();
     void update();
     void draw();
+    int lastBossHp(){return lasBossHp; }
 };
 

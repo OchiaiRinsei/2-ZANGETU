@@ -7,6 +7,10 @@ void BOSS2::create() {
 	Chara = game()->container()->data().charaBoss2;
 	Boss2 = game()->container()->data().boss2;
 }
+void BOSS2::init() {
+	Chara.hp = game()->container()->data().charaBoss2.hp;
+	Boss2.triggerErapsedTime = game()->container()->data().boss2.triggerErapsedTime;
+}
 void BOSS2::update() {
 	damage();
 	Launch();

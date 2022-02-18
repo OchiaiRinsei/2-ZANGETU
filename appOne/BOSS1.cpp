@@ -7,6 +7,10 @@ void BOSS1::create() {
 	Chara = game()->container()->data().charaBoss1;
 	Boss1 = game()->container()->data().boss1;
 }
+void BOSS1::init() {
+	Chara.hp = game()->container()->data().charaBoss1.hp;
+	Boss1.triggerErapsedTime = game()->container()->data().boss1.triggerErapsedTime;
+}
 void BOSS1::update() {
 	Move();
 	damage();
@@ -35,7 +39,6 @@ void BOSS1::Launch() {
 			float b = distanceY / naname;
 
 			VECTOR2 pos = VECTOR2(Chara.px, Chara.py) + VECTOR2(a, b) * Boss1.ofsLaunchDist;
-			
 			game()->bossBullets()->launch(pos, VECTOR2(a, b));
 			Boss1.triggerErapsedTime = 0;
 		}

@@ -6,6 +6,13 @@ void HEAL::create() {
 	Item = game()->container()->data().itemHeal;
 	Heal = game()->container()->data().heal;
 }
+void HEAL::init() {
+	Item.durability = game()->container()->data().itemHeal.durability;
+	Item.firstAppearFrag = 0;
+	Item.firstSetPosFrag = 0;
+	Item.possession = 0;
+	Heal.nowProgressTime = 0;
+}
 void HEAL::update() {
 	appear();
 	if (Item.id == 1 ) {
@@ -14,7 +21,6 @@ void HEAL::update() {
 		hit();
 	}
 }
-
 void HEAL::appear(){
 	if (game()->player()->itemId() == 1) {
 		Item.id = 1;

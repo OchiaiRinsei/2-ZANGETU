@@ -1,21 +1,11 @@
 #pragma once
 #include"CHARA.h"
-class BOSS3 :
+class BOSS_RHAND :
     public CHARA
 {
 public:
     //オリジナルデータ
     struct DATA {
-        //Move
-        float angle;
-        float RotSpeed;
-        //VECTOR2 Vel;
-        //VECTOR2 Acc;
-        //VECTOR2 V;
-        float MaxSpeed;
-        float MaxForce;
-        float NearDistance;
-        //Launch
         float theta;
         float ofsLaunchDist;
         float triggerErapsedTime;
@@ -23,13 +13,15 @@ public:
     };
 private:
     //オリジナルデータ
-    DATA Boss3;
+    DATA BossRHand;
 public:
-    BOSS3(class GAME* game) :CHARA(game) {}
+    BOSS_RHAND(class GAME* game) :CHARA(game) {}
     void create();
     void init();
     void update();
+    int hp() { return Chara.hp; }
 private:
     void Launch();
     void Move();
 };
+

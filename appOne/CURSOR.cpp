@@ -15,7 +15,11 @@ void CURSOR::update() {
 	Cursor.py = mouseY;
 }
 void CURSOR::draw() {
+	//Šm”F—p
 	fill(0);
-	circle(Cursor.px, Cursor.py, Cursor.radius*2);
+	if (isPress(KEY_H)) {
+		circle(Cursor.px, Cursor.py, Cursor.radius * 2);
+	}
+	//-------------------------
 	image(Cursor.img, Cursor.px, Cursor.py, 0, Cursor.scale);
 }

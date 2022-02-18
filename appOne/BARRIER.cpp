@@ -6,6 +6,13 @@ void BARRIER::create() {
 	Item = game()->container()->data().itemBarrier;
 	Barrier = game()->container()->data().barrier;
 }
+void BARRIER::init() {
+	Item.durability = game()->container()->data().itemBarrier.durability;
+	Item.firstAppearFrag = 0;
+	Item.firstSetPosFrag = 0;
+	Item.possession = 0;
+	Barrier.nowProgressTime = 0;
+}
 void BARRIER::update() {
 	appear();
 	if (Item.id == 1) {
@@ -16,7 +23,7 @@ void BARRIER::update() {
 }
 void BARRIER::draw() {
 	if (Item.possession&& game()->player()->invincibility()) {
-		effectDraw();
+		EffectDraw();
 	}
 	if (Item.id != 0&&Item.possession==0) {
 		//判定確認用
@@ -28,7 +35,7 @@ void BARRIER::draw() {
 	}
 	//ウィンドウにアイテム表示
 	if (Item.possession == 1) {
-		image(Item.img, 1800, 960, 0, 0.175f);
+		image(Item.img, 1800, 960, 0, Item.scale * 1.7f);
 	}
 	//-------------------------------------------
 }
@@ -44,19 +51,18 @@ int BARRIER::effect() {
 		if (Barrier.nowProgressTime >= Barrier.CompletionTime) {
 			Item.durability--;
 			Barrier.nowProgressTime = 0;
-			return 1;
+			return 0;
 		}
 		if (Item.durability == 0) {
 			Item.possession = 0;
 			Item.durability = game()->container()->data().itemBarrier.durability;
-			return 2;
+			return 1;
 		}
 	}
 	return 0;
 }
-void BARRIER::effectDraw() {
+void BARRIER::EffectDraw() {
 	VECTOR2 pPos = game()->player()->pos();
-	image(Item.img, pPos.x, pPos.y, 0, 0.07f);
-	Barrier.invincibility = 1;
+	image(Item.img, pPos.x, pPos.y, 0, 1.0f);
 }
 

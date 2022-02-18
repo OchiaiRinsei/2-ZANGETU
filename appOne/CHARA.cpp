@@ -14,17 +14,20 @@ void CHARA::update() {
 	
 }
 void CHARA::draw() {
-	if (Chara.hp >= 0) {
+	if (Chara.hp > 0) {
 	//確認用
-	fill(0);
-	stroke(5);
-	circle(Chara.px, Chara.py, Chara.radius*2);
-	VECTOR2 pPos = game()->player()->pos();
-	line(Chara.px, Chara.py, pPos.x, pPos.y);
-	//-----------------------------
-	//BOSSのhpの確認
-	textSize(100);
-	text(Chara.hp, 100, 100);
+		if (isPress(KEY_H)) {
+
+			fill(0);
+			stroke(5);
+			circle(Chara.px, Chara.py, Chara.radius * 2);
+			VECTOR2 pPos = game()->player()->pos();
+			line(Chara.px, Chara.py, pPos.x, pPos.y);
+	 //-----------------------------
+			//BOSSのhpの確認
+			textSize(100);
+			text(Chara.hp, 100, 100);
+		}
 	//-----------------------------
 	image(Chara.img, Chara.px, Chara.py, Chara.angle, Chara.scale);
 	}
@@ -39,6 +42,9 @@ void CHARA::damage() {
 		float c = sqrt(distanceX * distanceX + distanceY * distanceY);
 		if (c <= pRadius + Chara.radius) {
 			Chara.hp -= damaged;
+			if (game()->player()->buffBullet() == 0) {
+				game()->playerBullets()->kill(i);
+			}
 		}
 	}
 }

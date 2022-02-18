@@ -18,6 +18,7 @@ private:
 public:
     BOSS1(class GAME* game):CHARA(game){}
     void create();
+    void init();
     void update();
 private:
     void Move();

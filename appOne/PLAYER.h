@@ -6,6 +6,7 @@ class PLAYER :
 {
 public:
     struct DATA {
+        float time;
         int hp;
         VECTOR2 pos;
         VECTOR2 vec;
@@ -29,9 +30,12 @@ public:
         //itemŠÇ—
         int itemId;
         int firstItemFrag;
+        //healŠÖŒW
         //barrierŠÖŒW
         int invincibility;//–³“G‚©‚Ìó‘Ô
-       
+        //penetrateŠÖŒW
+        int buffBullet;//’e‚ğŠÑ’Ê‚³‚¹‚é‚©
+        
     };
 private:
     DATA Player;
@@ -43,6 +47,7 @@ public:
     void move();
     void setImg();
     void damage();
+    void countTime();
     //bullets
     void launch();
     void draw();
@@ -57,5 +62,7 @@ public:
     //int playerBulletsHp(){ return Player.playerBulletsHp; }
     int itemId() { return Player.itemId; }
     int invincibility() { return Player.invincibility; }
+    int buffBullet() { return Player.buffBullet; }
+    float time() { return Player.time; }
 };
 

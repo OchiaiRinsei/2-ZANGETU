@@ -25,9 +25,11 @@ void TITLE::draw() {
 	image(Title.mainImg, Title.mainPos.x, Title.mainPos.y);
 	image(Title.logoImg, Title.logoPos.x, Title.logoPos.y);
 	////Šm”F—p
-	fill(255);
-	circle(Title.startPos.x, Title.startPos.y, Title.radius*2);
-	circle(Title.scorePos.x, Title.scorePos.y, Title.radius*2);
+	if (isPress(KEY_H)) {
+		fill(255);
+		circle(Title.startPos.x, Title.startPos.y, Title.radius * 2);
+		circle(Title.scorePos.x, Title.scorePos.y, Title.radius * 2);
+	}
 	//--------------------------
 	image(Title.startImg, Title.startPos.x, Title.startPos.y);
 	image(Title.scoreImg, Title.scorePos.x, Title.scorePos.y);

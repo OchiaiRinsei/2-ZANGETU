@@ -15,6 +15,7 @@
 #include"ITEM.h"
 #include"HEAL.h"
 #include"BARRIER.h"
+#include"PENETRATE.h"
 STAGE::STAGE(class GAME* game) :
 	SCENE(game) {
 }
@@ -26,6 +27,9 @@ void STAGE::init() {
 	game()->charactorManager()->init();
 	game()->playerBullets()->init();
 	game()->bossBullets()->init();
+	game()->heal()->init();
+	game()->barrier()->init();
+	game()->penetrate()->init();
 }
 void STAGE::update() {
 	game()->player()->update();
@@ -36,6 +40,7 @@ void STAGE::update() {
 	game()->bossBullets()->update();
 	game()->heal()->update();
 	game()->barrier()->update();
+	game()->penetrate()->update();
 }
 void STAGE::draw() {
 	clear(0);
@@ -47,10 +52,11 @@ void STAGE::draw() {
 	game()->bossBullets()->draw();
 	game()->heal()->draw();
 	game()->barrier()->draw();
+	game()->penetrate()->draw();
 }
 
 void STAGE::nextScene() {
-	if (game()->player()->hp() <= 0) {
+	if (game()->player()->hp() <= 0||game()->charactorManager()->lastBossHp()<= 0){
 		game()->changeScene(GAME::SCORE_ID);
 	}
 }
