@@ -134,7 +134,7 @@ void PLAYER::rightClick() {
 		//----------------------------
 	}
 	//BARRIER
-	if (isTrigger(KEY_M) && Player.itemId == 2&&game()->barrier()->possession()) {
+	if (isTrigger(MOUSE_RBUTTON) && Player.itemId == 2&&game()->barrier()->possession()) {
 		Player.invincibility = 1;
 	}
 	if (Player.invincibility == 1 && Player.itemId == 2 && game()->barrier()->possession() == 1 && game()->barrier()->effect() == 1) {
@@ -143,7 +143,7 @@ void PLAYER::rightClick() {
 	}
 	//------------------------------------
 	//PENETRATE
-	if (isTrigger(KEY_M) && Player.itemId == 3 && game()->penetrate()->possession()) {
+	if (isTrigger(MOUSE_RBUTTON) && Player.itemId == 3 && game()->penetrate()->possession()) {
 		Player.buffBullet=1;
 	}
 	if (Player.itemId == 3 && game()->penetrate()->possession() && Player.buffBullet == 1 && game()->penetrate()->effect()==2) {
